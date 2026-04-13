@@ -394,19 +394,34 @@
                         <span class="cl-val">marcomotolese10@gmail.com</span>
                         <span class="cl-arrow">→</span>
                     </a>
-                    <a href="#" class="contact-link-row">
+                    <a
+                        href="https://www.linkedin.com/in/marco-motolese-webdeveloper/"
+                        class="contact-link-row"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <span class="cl-key">linkedin</span>
-                        <span class="cl-val">in/marcomotolese</span>
+                        <span class="cl-val">in/marco-motolese-webdeveloper</span>
                         <span class="cl-arrow">→</span>
                     </a>
-                    <a href="#" class="contact-link-row">
+                    <a
+                        href="https://github.com/marcomotolese"
+                        class="contact-link-row"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <span class="cl-key">github</span>
                         <span class="cl-val">github.com/marcomotolese</span>
                         <span class="cl-arrow">→</span>
                     </a>
-                    <a href="#" class="contact-link-row">
-                        <span class="cl-key">twitter</span>
-                        <span class="cl-val">@marcomotolese</span>
+                    <a
+                        href="https://www.instagram.com/marcomotolese.dev/"
+                        class="contact-link-row"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span class="cl-key">instagram</span>
+                        <span class="cl-val">@marcomotolese.dev</span>
                         <span class="cl-arrow">→</span>
                     </a>
                 </div>

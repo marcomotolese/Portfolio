@@ -7,14 +7,14 @@
         
 
         <div class="space-y-4">
-            <h1 class="text-balance text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl lg:text-5xl">
+            <h1 class="text-balance text-3xl font-semibold tracking-tight text-stone-900 sm:text-4xl lg:text-5xl">
                 Full-stack developer
-                <span class="bg-gradient-to-r from-sky-500 via-emerald-500 to-amber-500 bg-clip-text text-transparent">
+                <span class="bg-gradient-to-r from-stone-800 via-amber-700 to-yellow-600 bg-clip-text text-transparent">
                     per professionisti e business digitali
                 </span>
             </h1>
 
-            <p class="max-w-xl text-sm leading-relaxed text-zinc-600 sm:text-base">
+            <p class="max-w-xl text-sm leading-relaxed text-stone-600 sm:text-base">
                 Realizzo <strong>PWA e software web</strong> che semplificano i flussi di lavoro: da landing ad alto tasso
                 di conversione a CRM e micro‑SaaS, con focus su UX, performance e automazioni utili.
             </p>
@@ -27,7 +27,7 @@
             <a href="#contact" class="btn-ghost">
                 Prenota una call
             </a>
-            <p class="text-xs text-zinc-500">
+            <p class="text-xs text-stone-500">
                 Landing, CRM e micro‑SaaS pensati per far risparmiare tempo ogni giorno.
             </p>
         </div>

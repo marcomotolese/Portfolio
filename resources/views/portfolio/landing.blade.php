@@ -5,7 +5,7 @@
 @section('content')
     @if (session('status'))
         <div class="mx-auto mt-4 max-w-6xl px-6 lg:px-8">
-            <div class="rounded-xl bg-emerald-50 px-4 py-3 text-xs text-emerald-800 ring-1 ring-emerald-200">
+            <div class="rounded-xl bg-amber-50 px-4 py-3 text-xs text-amber-950 ring-1 ring-amber-200/90">
                 {{ session('status') }}
             </div>
         </div>
