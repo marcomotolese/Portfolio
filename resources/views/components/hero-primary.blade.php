@@ -33,14 +33,6 @@
         </div>
     </div>
 
-    {{-- Colonna foto --}}
-    <div class="flex-1 flex justify-center lg:justify-end">
-        <img 
-            src="/images/me.jpg"
-            alt="Marco Motolese"
-            class="w-56 h-56 rounded-3xl object-cover shadow-xl ring-1 ring-black/10 
-                   sm:w-64 sm:h-64 lg:w-72 lg:h-72"
-        >
-    </div>
+  
 
 </section>

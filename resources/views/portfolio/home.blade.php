@@ -61,7 +61,7 @@
         <div class="js-hero-photo">
             <div class="relative mx-auto max-w-xs rounded-3xl bg-gradient-to-b from-sky-100 via-white to-emerald-50 p-4 shadow-[0_24px_80px_rgba(15,23,42,0.16)]">
                 <div class="aspect-[4/5] overflow-hidden rounded-2xl bg-zinc-200">
-                    {{-- Sostituisci con la tua foto in /public/images/me.jpg --}}
+                    
                     <div class="flex h-full items-center justify-center text-4xl text-zinc-500/40">
                         MM
                     </div>
