@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "regions": ["fra1"],
+    "buildCommand": "composer install --no-dev --no-interaction --optimize-autoloader && npm ci --include=dev && npm run build",
+    "outputDirectory": "public",
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.1"
+        }
+    },
+    "routes": [
+        { "src": "/build/(.*)", "dest": "/build/$1" },
+        { "handle": "filesystem" },
+        { "src": "/(.*)", "dest": "/api/index.php" }
+    ]
+}
