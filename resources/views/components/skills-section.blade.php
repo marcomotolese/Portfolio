@@ -1,24 +1,49 @@
 @php
-    $skillGroups = [
+    $skillLogos = [
         [
-            'label' => 'Frontend',
-            'color' => 'from-blue-600 to-sky-400',
-            'items' => ['JavaScript', 'TailwindCSS', 'Bootstrap', 'UI responsive'],
+            'name' => 'Laravel',
+            'icon' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
+            'url' => 'https://laravel.com/docs',
         ],
         [
-            'label' => 'Backend',
-            'color' => 'from-slate-900 to-slate-700',
-            'items' => ['Laravel', 'PHP OOP', 'REST API', 'Autenticazione'],
+            'name' => 'PHP',
+            'icon' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
+            'url' => 'https://www.php.net/docs.php',
         ],
         [
-            'label' => 'Database & integrazioni',
-            'color' => 'from-blue-800 to-blue-950',
-            'items' => ['MySQL', 'Query ottimizzate', 'MuleSoft (base)', 'Data flow'],
+            'name' => 'JavaScript',
+            'icon' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+            'url' => 'https://developer.mozilla.org/docs/Web/JavaScript',
         ],
         [
-            'label' => 'Workflow',
-            'color' => 'from-slate-700 to-slate-900',
-            'items' => ['Git', 'Scrum/Agile', 'Code review', 'Documentazione'],
+            'name' => 'TailwindCSS',
+            'icon' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+            'url' => 'https://tailwindcss.com/docs',
+        ],
+        [
+            'name' => 'Bootstrap',
+            'icon' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
+            'url' => 'https://getbootstrap.com/docs/',
+        ],
+        [
+            'name' => 'MySQL',
+            'icon' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+            'url' => 'https://dev.mysql.com/doc/',
+        ],
+        [
+            'name' => 'Git',
+            'icon' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+            'url' => 'https://git-scm.com/doc',
+        ],
+        [
+            'name' => 'Livewire',
+            'icon' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/livewire/livewire-original.svg',
+            'url' => 'https://livewire.laravel.com/docs',
+        ],
+        [
+            'name' => 'Vite',
+            'icon' => 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg',
+            'url' => 'https://vite.dev/guide/',
         ],
     ];
 @endphp
@@ -31,25 +56,68 @@
         <div class="s-line"></div>
     </div>
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        @foreach ($skillGroups as $group)
-            <div
-                class="js-skill-card group flex flex-col rounded-2xl bg-white p-4 text-left shadow-sm ring-1 ring-blue-200/80 transition hover:-translate-y-1 hover:bg-blue-50/50 hover:ring-blue-300"
-            >
-                <div class="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br {{ $group['color'] }} text-xs font-semibold text-white">
-                    {{ strtoupper(substr($group['label'], 0, 2)) }}
-                </div>
-                <p class="text-sm font-semibold text-slate-900">{{ $group['label'] }}</p>
-                <ul class="mt-2 space-y-1 text-[0.8rem] text-slate-600">
-                    @foreach ($group['items'] as $item)
-                        <li class="flex items-center gap-2">
-                            <span class="h-1 w-1 rounded-full bg-blue-300 group-hover:bg-blue-600"></span>
-                            <span>{{ $item }}</span>
-                        </li>
+    <p class="text-sm text-slate-300">
+        Stack in movimento: passa sopra per mettere in pausa e clicca un logo per aprire la documentazione ufficiale.
+    </p>
+
+    <div class="space-y-4">
+        <div class="skill-marquee">
+            <div class="skill-marquee-track">
+                @foreach ([$skillLogos, $skillLogos] as $logoSet)
+                    @foreach ($logoSet as $skill)
+                        <a
+                            href="{{ $skill['url'] }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="skill-logo-item"
+                            aria-label="Apri documentazione {{ $skill['name'] }}"
+                            title="{{ $skill['name'] }}"
+                        >
+                            <img src="{{ $skill['icon'] }}" alt="{{ $skill['name'] }}" class="h-8 w-8 object-contain" loading="lazy" />
+                            <span class="text-xs font-medium text-slate-700">{{ $skill['name'] }}</span>
+                        </a>
                     @endforeach
-                </ul>
+                @endforeach
             </div>
-        @endforeach
+        </div>
+
+        <div class="skill-marquee skill-marquee--reverse">
+            <div class="skill-marquee-track">
+                @foreach ([$skillLogos, $skillLogos] as $logoSet)
+                    @foreach (array_reverse($logoSet) as $skill)
+                        <a
+                            href="{{ $skill['url'] }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="skill-logo-item"
+                            aria-label="Apri documentazione {{ $skill['name'] }}"
+                            title="{{ $skill['name'] }}"
+                        >
+                            <img src="{{ $skill['icon'] }}" alt="{{ $skill['name'] }}" class="h-8 w-8 object-contain" loading="lazy" />
+                            <span class="text-xs font-medium text-slate-700">{{ $skill['name'] }}</span>
+                        </a>
+                    @endforeach
+                @endforeach
+            </div>
+        </div>
+          <div class="mt-4 flex flex-wrap gap-6 text-xs text-slate-400">
+
+            <div>
+                <p class="font-medium text-white">Stack principale</p>
+                <p class="mt-1">Laravel · PHP · JavaScript · HTML · CSS · Bootstrap  TailwindCSS · MySQL</p>
+            </div>
+
+            <div>
+                <p class="font-medium text-white">Competenze extra</p>
+                <p class="mt-1">WordPress · Hosting · Photoshop · UI essenziale · Mulesoft</p>
+            </div>
+
+            <div>
+                <p class="font-medium text-white">Valore che porto</p>
+                <p class="mt-1">Efficienza operativa, UX chiara, delivery rapido e scalabile.</p>
+            </div>
+
+        </div>
     </div>
 </section>
 

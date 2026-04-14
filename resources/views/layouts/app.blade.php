@@ -55,7 +55,13 @@
 
             <footer class="border-t border-white/20 bg-white/10 backdrop-blur-md">
                 <div class="mx-auto flex max-w-6xl items-center justify-center px-6 py-5 text-xs text-white/85 md:px-8">
-                    <p>&copy; 2026 Marco Motolese. All rights reserved.</p>
+                    <p>
+                        &copy; 2026 Marco Motolese. All rights reserved.
+                        <span class="mx-1 text-white/50">·</span>
+                        <a href="{{ route('privacy.policy') }}" class="underline decoration-white/40 underline-offset-2 hover:text-white">
+                            Privacy Policy
+                        </a>
+                    </p>
                 </div>
             </footer>
         </div>

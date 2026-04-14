@@ -71,6 +71,10 @@
         .page-atmosphere__flow--d {
             animation: none;
         }
+
+        .skill-marquee-track {
+            animation: none;
+        }
     }
 
     /** Angoli tipo “blueprint” sul hero */
@@ -232,6 +236,43 @@
 
     .s-line {
         @apply h-px flex-1 bg-gradient-to-r from-white/25 via-sky-500/25 to-transparent;
+    }
+
+    .skill-marquee {
+        @apply relative overflow-hidden rounded-2xl border border-white/15 bg-white/5 p-3 backdrop-blur-sm;
+    }
+
+    .skill-marquee::before,
+    .skill-marquee::after {
+        content: '';
+        @apply pointer-events-none absolute inset-y-0 z-10 w-12;
+    }
+
+    .skill-marquee::before {
+        @apply left-0 bg-gradient-to-r from-zinc-950 via-zinc-950/75 to-transparent;
+    }
+
+    .skill-marquee::after {
+        @apply right-0 bg-gradient-to-l from-zinc-950 via-zinc-950/75 to-transparent;
+    }
+
+    .skill-marquee-track {
+        @apply flex min-w-max items-center gap-3;
+        animation: skill-marquee-scroll 34s linear infinite;
+    }
+
+    .skill-marquee--reverse .skill-marquee-track {
+        animation-direction: reverse;
+        animation-duration: 38s;
+    }
+
+    .skill-marquee:hover .skill-marquee-track,
+    .skill-marquee:focus-within .skill-marquee-track {
+        animation-play-state: paused;
+    }
+
+    .skill-logo-item {
+        @apply inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:border-blue-400 hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60;
     }
 
     .proj-header-row {
@@ -430,3 +471,13 @@
         background-position: 120px 120px;
     }
 }
+
+@keyframes skill-marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+

@@ -8,6 +8,8 @@ Route::get('/', function () {
     return view('portfolio.landing');
 });
 
+Route::view('/privacy-policy', 'portfolio.privacy-policy')->name('privacy.policy');
+
 
 
 
@@ -17,6 +19,7 @@ Route::post('/contact', function (Request $request) {
         'email' => ['required', 'email'],
         'subject' => ['required', 'string', 'max:255'],
         'message' => ['required', 'string'],
+        'privacy_consent' => ['accepted'],
     ]);
 
     // In produzione puoi cambiare destinatario e contenuto come preferisci

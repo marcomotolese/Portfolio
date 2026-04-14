@@ -24,8 +24,12 @@
                             name="name"
                             type="text"
                             autocomplete="name"
+                            value="{{ old('name') }}"
                             class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100"
                         />
+                        @error('name')
+                            <p class="text-xs text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="space-y-1.5">
                         <label for="email" class="block text-xs font-medium text-slate-600">Email</label>
@@ -34,8 +38,12 @@
                             name="email"
                             type="email"
                             autocomplete="email"
+                            value="{{ old('email') }}"
                             class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100"
                         />
+                        @error('email')
+                            <p class="text-xs text-red-600">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
 
@@ -45,8 +53,12 @@
                         id="subject"
                         name="subject"
                         type="text"
+                        value="{{ old('subject') }}"
                         class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100"
                     />
+                    @error('subject')
+                        <p class="text-xs text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div class="space-y-1.5">
@@ -56,8 +68,43 @@
                         name="message"
                         rows="4"
                         class="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-blue-600 focus:bg-white focus:ring-2 focus:ring-blue-100"
-                    ></textarea>
+                    >{{ old('message') }}</textarea>
+                    @error('message')
+                        <p class="text-xs text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
+
+                <div class="space-y-1.5">
+                    <label for="privacy_consent" class="flex items-start gap-2 text-xs text-slate-600">
+                        <input
+                            id="privacy_consent"
+                            name="privacy_consent"
+                            type="checkbox"
+                            value="1"
+                            class="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                            @checked(old('privacy_consent'))
+                        />
+                        <span>
+                            Ho letto e accetto la
+                            <a
+                                href="{{ route('privacy.policy') }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="font-medium text-blue-700 underline decoration-blue-400/70 underline-offset-2 hover:text-blue-900"
+                            >
+                                Privacy Policy
+                            </a>
+                            per il trattamento dei miei dati.
+                        </span>
+                    </label>
+                    @error('privacy_consent')
+                        <p class="text-xs text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <p class="text-xs leading-relaxed text-slate-500">
+                    I dati inseriti saranno usati esclusivamente per rispondere alla tua richiesta di contatto.
+                </p>
 
                 <button type="submit" class="btn-primary">
                     Invia messaggio
