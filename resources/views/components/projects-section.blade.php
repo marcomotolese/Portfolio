@@ -59,7 +59,7 @@
             'title' => 'immagineamantea.com',
             'description' => 'Sito vetrina per negozio di abbigliamento con buoni regalo digitali.',
             'badge' => 'Live',
-            'badge_color' => 'from-amber-500 to-rose-500',
+            'badge_color' => 'from-blue-600 to-sky-500',
             'stack' => ['Laravel', 'PHP', 'jQuery', 'Bootstrap'],
             'link' => 'https://immagineamantea.com',
             'link_label' => 'Vai al sito',
@@ -80,7 +80,7 @@
     ];
 @endphp
 
-<section id="projects" class="js-section mx-auto max-w-7xl space-y-8 border-t border-amber-200/70 py-16">
+<section id="projects" class="js-section mx-auto max-w-7xl space-y-8 border-t border-blue-200/80 py-16">
     <div class="s-header">
         <span class="s-tag">02</span>
         <h2 class="s-title">PROGETTI SELEZIONATI</h2>
@@ -90,7 +90,7 @@
     <div class="grid gap-8 xl:grid-cols-2">
         @foreach ($projects as $project)
             <article
-                class="js-project-card group flex flex-col rounded-2xl bg-white/95 p-6 shadow-sm ring-1 ring-amber-200/80 transition hover:-translate-y-1.5 hover:bg-white hover:shadow-[0_18px_60px_rgba(120,53,15,0.12)] hover:ring-amber-300/90"
+                class="js-project-card group flex flex-col rounded-2xl bg-white/95 p-6 shadow-sm ring-1 ring-blue-200/80 transition hover:-translate-y-1.5 hover:bg-white hover:shadow-[0_18px_60px_rgba(15,23,42,0.12)] hover:ring-blue-300/90"
             >
 
                 {{-- Galleria: 2 immagini affiancate grandi; altrimenti hero + righe aggiuntive; click = lightbox --}}
@@ -102,7 +102,7 @@
                             @foreach ($project['images'] as $projectImage)
                                 <button
                                     type="button"
-                                    class="project-gallery-thumb group/img relative flex min-h-[200px] cursor-zoom-in items-center justify-center overflow-hidden rounded-xl bg-stone-100 ring-1 ring-amber-200/70 transition hover:ring-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600"
+                                    class="project-gallery-thumb group/img relative flex min-h-[200px] cursor-zoom-in items-center justify-center overflow-hidden rounded-xl bg-slate-100 ring-1 ring-blue-200/70 transition hover:ring-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                                     data-project-lightbox
                                     data-project-lightbox-src="{{ asset($projectImage) }}"
                                     data-project-lightbox-alt="{{ $project['title'] }} — screenshot"
@@ -123,7 +123,7 @@
                     @else
                         <button
                             type="button"
-                            class="project-gallery-thumb mb-3 flex w-full cursor-zoom-in items-center justify-center overflow-hidden rounded-xl bg-stone-100 ring-1 ring-amber-200/70 transition hover:ring-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600"
+                            class="project-gallery-thumb mb-3 flex w-full cursor-zoom-in items-center justify-center overflow-hidden rounded-xl bg-slate-100 ring-1 ring-blue-200/70 transition hover:ring-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                             data-project-lightbox
                             data-project-lightbox-src="{{ asset($project['images'][0]) }}"
                             data-project-lightbox-alt="{{ $project['title'] }} — screenshot principale"
@@ -142,7 +142,7 @@
                                 @foreach (array_slice($project['images'], 1, 6) as $projectImage)
                                     <button
                                         type="button"
-                                        class="project-gallery-thumb flex min-h-[120px] cursor-zoom-in items-center justify-center overflow-hidden rounded-lg bg-stone-100 ring-1 ring-amber-200/70 transition hover:ring-amber-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-600"
+                                        class="project-gallery-thumb flex min-h-[120px] cursor-zoom-in items-center justify-center overflow-hidden rounded-lg bg-slate-100 ring-1 ring-blue-200/70 transition hover:ring-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                                         data-project-lightbox
                                         data-project-lightbox-src="{{ asset($projectImage) }}"
                                         data-project-lightbox-alt="{{ $project['title'] }} — screenshot"
@@ -160,7 +160,7 @@
                         @endif
                     @endif
 
-                    <p class="mb-1 text-[0.7rem] text-stone-500">
+                    <p class="mb-1 text-[0.7rem] text-slate-500">
                         Clicca un’immagine per aprirla a schermo intero ({{ $imgCount }} screenshot)
                     </p>
                 @else
@@ -171,24 +171,24 @@
 
                 {{-- BADGE --}}
                 <div class="mb-2 flex items-center justify-between text-xs">
-                    <span class="inline-flex items-center gap-1 rounded-full bg-stone-900 px-2 py-0.5 text-[0.65rem] font-medium text-stone-50">
-                        <span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>
+                    <span class="inline-flex items-center gap-1 rounded-full bg-slate-950 px-2 py-0.5 text-[0.65rem] font-medium text-white">
+                        <span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>
                         {{ $project['badge'] }}
                     </span>
                 </div>
 
                 {{-- TITOLO --}}
-                <h3 class="text-lg font-semibold text-stone-900">{{ $project['title'] }}</h3>
+                <h3 class="text-lg font-semibold text-slate-900">{{ $project['title'] }}</h3>
 
                 {{-- DESCRIZIONE --}}
-                <p class="mt-2 text-[0.95rem] leading-relaxed text-stone-600">
+                <p class="mt-2 text-[0.95rem] leading-relaxed text-slate-600">
                     {{ $project['description'] }}
                 </p>
 
                 {{-- STACK --}}
                 <div class="mt-3 flex flex-wrap gap-2">
                     @foreach ($project['stack'] as $tech)
-                        <span class="rounded-full bg-amber-50 px-2 py-0.5 text-[0.65rem] text-stone-800 ring-1 ring-amber-200/90">
+                        <span class="rounded-full bg-blue-50 px-2 py-0.5 text-[0.65rem] text-slate-800 ring-1 ring-blue-200/90">
                             {{ $tech }}
                         </span>
                     @endforeach
@@ -200,7 +200,7 @@
                         href="{{ $project['link'] }}"
                         target="_blank"
                         rel="noreferrer"
-                        class="mt-4 inline-flex items-center text-xs font-medium text-amber-800 hover:text-amber-900"
+                        class="mt-4 inline-flex items-center text-xs font-medium text-blue-800 hover:text-slate-900"
                     >
                         {{ $project['link_label'] }}
                         <span class="ml-1 text-[0.9rem] transition group-hover:translate-x-0.5">

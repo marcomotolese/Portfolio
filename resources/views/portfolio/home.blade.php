@@ -14,7 +14,7 @@
             <div class="space-y-4">
                 <h1 class="text-balance text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl lg:text-5xl">
                     Ciao, sono
-                    <span class="bg-gradient-to-r from-sky-500 via-emerald-500 to-amber-500 bg-clip-text text-transparent">
+                    <span class="bg-gradient-to-r from-slate-950 via-blue-700 to-sky-500 bg-clip-text text-transparent">
                         Marco Motolese
                     </span>
                     <span class="block text-zinc-700">Junior Developer focalizzato su esperienze web curate.</span>
@@ -138,11 +138,11 @@
                             </span>
                             <div class="skill-meter">
                                 <div
-                                    class="skill-meter-fill {{ !empty($skill['accent']) ? 'skill-meter-fill-amber' : '' }}"
+                                    class="skill-meter-fill {{ !empty($skill['accent']) ? 'skill-meter-fill-accent' : '' }}"
                                     data-skill="{{ $skill['value'] }}"
                                 ></div>
                             </div>
-                            <span class="skill-pct {{ !empty($skill['accent']) ? 'text-amber-300' : '' }}">{{ $skill['value'] }}%</span>
+                            <span class="skill-pct {{ !empty($skill['accent']) ? 'text-sky-400' : '' }}">{{ $skill['value'] }}%</span>
                         </div>
                     @endforeach
 

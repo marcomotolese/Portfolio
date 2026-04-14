@@ -11,6 +11,108 @@
 }
 
 @layer components {
+    /** Sfondo fisso: griglia punti; linee in movimento nei figli .page-atmosphere__flow */
+    .page-atmosphere {
+        background-color: #f0f4fc;
+        background-image: radial-gradient(circle at 1px 1px, rgb(30 58 138 / 0.06) 1px, transparent 0);
+        background-size: 24px 24px;
+    }
+
+    .page-atmosphere__flow {
+        position: absolute;
+        inset: 0;
+        opacity: 0.55;
+    }
+
+    /** Linee verticali che scorrono orizzontalmente */
+    .page-atmosphere__flow--h {
+        background-image: repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 76px,
+            rgb(59 130 246 / 0.055) 76px,
+            rgb(59 130 246 / 0.055) 77px
+        );
+        background-size: 77px 100%;
+        animation: atmosphere-flow-x 52s linear infinite;
+    }
+
+    /** Linee orizzontali che scorrono verticalmente */
+    .page-atmosphere__flow--v {
+        background-image: repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 76px,
+            rgb(15 23 42 / 0.045) 76px,
+            rgb(15 23 42 / 0.045) 77px
+        );
+        background-size: 100% 77px;
+        animation: atmosphere-flow-y 68s linear infinite;
+    }
+
+    /** Fasci diagonali lenti (senso opposto per profondità) */
+    .page-atmosphere__flow--d {
+        opacity: 0.4;
+        background-image: repeating-linear-gradient(
+            -13deg,
+            transparent 0,
+            transparent 72px,
+            rgb(59 130 246 / 0.04) 72px,
+            rgb(59 130 246 / 0.04) 73px
+        );
+        background-size: 120px 120px;
+        animation: atmosphere-flow-d 95s linear infinite reverse;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .page-atmosphere__flow--h,
+        .page-atmosphere__flow--v,
+        .page-atmosphere__flow--d {
+            animation: none;
+        }
+    }
+
+    /** Angoli tipo “blueprint” sul hero */
+    .hero-signature::before,
+    .hero-signature::after {
+        content: '';
+        position: absolute;
+        width: clamp(3.5rem, 12vw, 6.5rem);
+        height: clamp(3.5rem, 12vw, 6.5rem);
+        pointer-events: none;
+        border-color: rgb(59 130 246 / 0.22);
+    }
+
+    .hero-signature::before {
+        top: 0;
+        right: 0;
+        border-top-width: 2px;
+        border-right-width: 2px;
+        border-top-right-radius: 0.75rem;
+    }
+
+    .hero-signature::after {
+        bottom: 0;
+        left: 0;
+        border-bottom-width: 2px;
+        border-left-width: 2px;
+        border-bottom-left-radius: 0.75rem;
+    }
+
+    /** Link header: sottolineatura che si espande */
+    .nav-pill {
+        @apply relative inline-block pb-0.5;
+    }
+
+    .nav-pill::after {
+        content: '';
+        @apply absolute bottom-0 left-0 h-0.5 w-0 rounded-full bg-gradient-to-r from-blue-700 to-sky-500 transition-[width] duration-300 ease-out;
+    }
+
+    .nav-pill:hover::after {
+        @apply w-full;
+    }
+
     .terminal-card {
         @apply rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_18px_60px_rgba(15,23,42,0.12)];
     }
@@ -104,11 +206,11 @@
     }
 
     .btn-primary {
-        @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-amber-700 via-amber-600 to-yellow-600 px-5 py-2 text-xs font-semibold tracking-wide text-white shadow-sm ring-1 ring-amber-400/50 transition hover:brightness-105;
+        @apply inline-flex items-center justify-center rounded-full bg-gradient-to-r from-slate-900 via-blue-800 to-blue-600 px-5 py-2 text-xs font-semibold tracking-wide text-white shadow-sm ring-1 ring-blue-500/40 transition hover:brightness-105;
     }
 
     .btn-ghost {
-        @apply inline-flex items-center justify-center rounded-full border border-amber-200/90 bg-white/80 px-5 py-2 text-xs font-medium text-stone-800 transition hover:border-amber-400 hover:bg-amber-50/90;
+        @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/90 px-5 py-2 text-xs font-medium text-slate-800 transition hover:border-blue-400 hover:bg-blue-50/90;
     }
 
     .s-header {
@@ -116,15 +218,15 @@
     }
 
     .s-tag {
-        @apply inline-flex h-7 w-7 items-center justify-center rounded-full border border-amber-200 bg-white text-[0.65rem] font-medium text-amber-900/75;
+        @apply inline-flex h-7 w-7 items-center justify-center rounded-full border border-blue-200 bg-white text-[0.65rem] font-medium text-slate-800;
     }
 
     .s-title {
-        @apply text-sm font-semibold tracking-[0.25em] text-amber-900/70;
+        @apply text-sm font-semibold tracking-[0.25em] text-blue-950/75;
     }
 
     .s-line {
-        @apply h-px flex-1 bg-gradient-to-r from-amber-200/90 via-amber-300/60 to-transparent;
+        @apply h-px flex-1 bg-gradient-to-r from-slate-300/80 via-blue-300/50 to-transparent;
     }
 
     .proj-header-row {
@@ -188,11 +290,11 @@
     }
 
     .skill-meter-fill {
-        @apply h-full w-0 rounded-full bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.35)];
+        @apply h-full w-0 rounded-full bg-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.35)];
     }
 
-    .skill-meter-fill-amber {
-        @apply bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.4)];
+    .skill-meter-fill-accent {
+        @apply bg-sky-400 shadow-[0_0_10px_rgba(56,189,248,0.45)];
     }
 
     .skill-pct {
@@ -204,7 +306,7 @@
     }
 
     .exp-row-accent {
-        @apply border-amber-500/40 bg-amber-500/5;
+        @apply border-blue-500/40 bg-blue-500/5;
     }
 
     .exp-row-highlight {
@@ -244,7 +346,7 @@
     }
 
     .contact-link-row {
-        @apply flex items-center justify-between gap-4 rounded-xl border border-amber-200/80 bg-white px-4 py-2.5 text-[0.8rem] text-stone-700 transition hover:border-amber-400 hover:bg-amber-50/60;
+        @apply flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-[0.8rem] text-slate-700 transition hover:border-blue-400 hover:bg-blue-50/70;
     }
 
     .cl-key {
@@ -269,6 +371,14 @@
 }
 
 @layer utilities {
+    /** Micro-lampeggio sul titolo hero (solo chi supporta, altrimenti resta statico) */
+    @media (prefers-reduced-motion: no-preference) {
+        .text-shimmer-accent {
+            background-size: 200% auto;
+            animation: shimmer-shift 14s ease-in-out infinite;
+        }
+    }
+
     .js-hero,
     .js-section,
     .js-project,
@@ -279,3 +389,39 @@
     }
 }
 
+@keyframes shimmer-shift {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes atmosphere-flow-x {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 77px;
+    }
+}
+
+@keyframes atmosphere-flow-y {
+    0% {
+        background-position-y: 0;
+    }
+    100% {
+        background-position-y: 77px;
+    }
+}
+
+@keyframes atmosphere-flow-d {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 120px 120px;
+    }
+}

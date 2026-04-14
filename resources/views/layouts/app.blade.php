@@ -11,17 +11,29 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="min-h-screen bg-[#faf8f5] text-stone-900 antialiased">
-        <div class="relative isolate min-h-screen">
+    <body
+        class="min-h-screen bg-[#f0f4fc] text-slate-900 antialiased selection:bg-blue-200/40 selection:text-slate-950"
+    >
+        <div
+            class="page-atmosphere pointer-events-none fixed inset-0 z-0 overflow-hidden"
+            aria-hidden="true"
+        >
+            {{-- Linee animate (CSS): scorrimento continuo, rispetta prefers-reduced-motion --}}
+            <div class="page-atmosphere__flow page-atmosphere__flow--h"></div>
+            <div class="page-atmosphere__flow page-atmosphere__flow--v"></div>
+            <div class="page-atmosphere__flow page-atmosphere__flow--d"></div>
+        </div>
+
+        <div class="relative z-10 isolate min-h-screen">
             <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl">
                 <div
-                    class="relative left-1/2 aspect-[1155/678] w-[46rem] -translate-x-1/2 bg-gradient-to-tr from-amber-200/90 via-yellow-100/80 to-stone-200/70 opacity-70"
+                    class="relative left-1/2 aspect-[1155/678] w-[46rem] -translate-x-1/2 bg-gradient-to-tr from-slate-950/35 via-blue-700/30 to-sky-400/35 opacity-90"
                 ></div>
             </div>
 
             <header class="mx-auto flex max-w-6xl items-center justify-center px-6 py-5 md:justify-between lg:px-8">
                 <a href="{{ url('/') }}" class="flex items-center gap-3">
-                    <span class="inline-flex h-9 w-9 overflow-hidden rounded-full shadow-md ring-2 ring-amber-600/25 ring-offset-2 ring-offset-[#faf8f5]">
+                    <span class="inline-flex h-9 w-9 overflow-hidden rounded-full shadow-md ring-2 ring-blue-700/35 ring-offset-2 ring-offset-[#f0f4fc]">
                         <img
                             src="{{ asset('images/logo.jpg') }}"
                             alt="Logo Marco Motolese"
@@ -30,10 +42,10 @@
                     </span>
                 </a>
 
-                <nav class="hidden items-center gap-6 text-sm text-stone-600 md:flex">
-                    <a href="#about" class="transition hover:text-amber-900">About</a>
-                    <a href="#projects" class="transition hover:text-amber-900">Projects</a>
-                    <a href="#contact" class="transition hover:text-amber-900">Contact</a>
+                <nav class="hidden items-center gap-6 text-sm text-slate-600 md:flex">
+                    <a href="#about" class="nav-pill transition hover:text-blue-900">About</a>
+                    <a href="#projects" class="nav-pill transition hover:text-blue-900">Projects</a>
+                    <a href="#contact" class="nav-pill transition hover:text-blue-900">Contact</a>
                 </nav>
             </header>
 
@@ -41,8 +53,8 @@
                 @yield('content')
             </main>
 
-            <footer class="border-t border-amber-200/60 bg-white/70 backdrop-blur">
-                <div class="mx-auto flex max-w-6xl items-center justify-center px-6 py-5 text-xs text-stone-600 md:px-8">
+            <footer class="border-t border-blue-200/70 bg-white/75 backdrop-blur">
+                <div class="mx-auto flex max-w-6xl items-center justify-center px-6 py-5 text-xs text-slate-600 md:px-8">
                     <p>&copy; 2026 Marco Motolese. All rights reserved.</p>
                 </div>
             </footer>
