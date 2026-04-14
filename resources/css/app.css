@@ -15,7 +15,7 @@
     /** Nero logo (zinc-950): griglia + linee leggibili su fondo scuro */
     .page-atmosphere {
         background-color: #09090b;
-        background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.05) 1px, transparent 0);
+        background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.12) 1px, transparent 0);
         background-size: 24px 24px;
     }
 
@@ -31,8 +31,8 @@
             90deg,
             transparent 0,
             transparent 76px,
-            rgb(255 255 255 / 0.055) 76px,
-            rgb(255 255 255 / 0.055) 77px
+            rgb(255 255 255 / 0.11) 76px,
+            rgb(255 255 255 / 0.11) 77px
         );
         background-size: 77px 100%;
         animation: atmosphere-flow-x 52s linear infinite;
@@ -58,8 +58,8 @@
             -13deg,
             transparent 0,
             transparent 72px,
-            rgb(255 255 255 / 0.04) 72px,
-            rgb(255 255 255 / 0.04) 73px
+            rgb(255 255 255 / 0.08) 72px,
+            rgb(255 255 255 / 0.08) 73px
         );
         background-size: 120px 120px;
         animation: atmosphere-flow-d 95s linear infinite reverse;
