@@ -8,6 +8,39 @@ if (typeof window !== 'undefined') {
 
     window.addEventListener('load', () => {
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const projectCards = document.querySelectorAll('.js-project-card');
+
+        const revealProjectCards = () => {
+            if (!projectCards.length) return;
+
+            if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+                projectCards.forEach((card) => {
+                    card.classList.remove('opacity-0', 'scale-90');
+                    card.classList.add('opacity-100', 'scale-100');
+                });
+                return;
+            }
+
+            const observer = new IntersectionObserver(
+                (entries, currentObserver) => {
+                    entries.forEach((entry) => {
+                        if (!entry.isIntersecting) return;
+                        entry.target.classList.remove('opacity-0', 'scale-90');
+                        entry.target.classList.add('opacity-100', 'scale-100');
+                        currentObserver.unobserve(entry.target);
+                    });
+                },
+                {
+                    root: null,
+                    rootMargin: '0px 0px -10% 0px',
+                    threshold: 0.18,
+                },
+            );
+
+            projectCards.forEach((card) => observer.observe(card));
+        };
+
+        revealProjectCards();
 
         if (!prefersReducedMotion) {
             // Hero intro (testo + preview in due colonne)
@@ -83,25 +116,8 @@ if (typeof window !== 'undefined') {
                 );
             });
 
-            // Project cards: reveal on scroll + hover lift
-            const projectCards = document.querySelectorAll('.js-project-card');
+            // Project cards: hover lift
             if (projectCards.length) {
-                gsap.fromTo(
-                    projectCards,
-                    { opacity: 0, y: 24 },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.7,
-                        ease: 'power2.out',
-                        stagger: 0.06,
-                        scrollTrigger: {
-                            trigger: '#projects',
-                            start: 'top 75%',
-                        },
-                    },
-                );
-
                 projectCards.forEach((card) => {
                     card.addEventListener('mouseenter', () => {
                         gsap.to(card, { y: -6, duration: 0.18, ease: 'power2.out' });

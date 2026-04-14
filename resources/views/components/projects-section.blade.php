@@ -90,7 +90,7 @@
     <div class="grid gap-8 xl:grid-cols-2">
         @foreach ($projects as $project)
             <article
-                class="js-project-card group flex flex-col rounded-2xl bg-white/95 p-6 shadow-sm ring-1 ring-blue-200/80 transition hover:-translate-y-1.5 hover:bg-white hover:shadow-[0_18px_60px_rgba(15,23,42,0.12)] hover:ring-blue-300/90"
+                class="js-project-card group flex flex-col rounded-2xl bg-white/95 p-6 opacity-0 scale-90 shadow-sm ring-1 ring-blue-200/80 transition-all duration-[5000ms] ease-out hover:-translate-y-1.5 hover:bg-white hover:shadow-[0_18px_60px_rgba(15,23,42,0.12)] hover:ring-blue-300/90"
             >
 
                 {{-- Galleria: 2 immagini affiancate grandi; altrimenti hero + righe aggiuntive; click = lightbox --}}
