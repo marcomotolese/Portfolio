@@ -12,16 +12,17 @@
 
 @layer components {
     /** Sfondo fisso: griglia punti; linee in movimento nei figli .page-atmosphere__flow */
+    /** Nero logo (zinc-950): griglia + linee leggibili su fondo scuro */
     .page-atmosphere {
-        background-color: #f0f4fc;
-        background-image: radial-gradient(circle at 1px 1px, rgb(30 58 138 / 0.06) 1px, transparent 0);
+        background-color: #09090b;
+        background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.05) 1px, transparent 0);
         background-size: 24px 24px;
     }
 
     .page-atmosphere__flow {
         position: absolute;
         inset: 0;
-        opacity: 0.55;
+        opacity: 0.45;
     }
 
     /** Linee verticali che scorrono orizzontalmente */
@@ -30,8 +31,8 @@
             90deg,
             transparent 0,
             transparent 76px,
-            rgb(59 130 246 / 0.055) 76px,
-            rgb(59 130 246 / 0.055) 77px
+            rgb(255 255 255 / 0.055) 76px,
+            rgb(255 255 255 / 0.055) 77px
         );
         background-size: 77px 100%;
         animation: atmosphere-flow-x 52s linear infinite;
@@ -43,8 +44,8 @@
             0deg,
             transparent 0,
             transparent 76px,
-            rgb(15 23 42 / 0.045) 76px,
-            rgb(15 23 42 / 0.045) 77px
+            rgb(56 189 248 / 0.06) 76px,
+            rgb(56 189 248 / 0.06) 77px
         );
         background-size: 100% 77px;
         animation: atmosphere-flow-y 68s linear infinite;
@@ -52,13 +53,13 @@
 
     /** Fasci diagonali lenti (senso opposto per profondità) */
     .page-atmosphere__flow--d {
-        opacity: 0.4;
+        opacity: 0.32;
         background-image: repeating-linear-gradient(
             -13deg,
             transparent 0,
             transparent 72px,
-            rgb(59 130 246 / 0.04) 72px,
-            rgb(59 130 246 / 0.04) 73px
+            rgb(255 255 255 / 0.04) 72px,
+            rgb(255 255 255 / 0.04) 73px
         );
         background-size: 120px 120px;
         animation: atmosphere-flow-d 95s linear infinite reverse;
@@ -80,7 +81,7 @@
         width: clamp(3.5rem, 12vw, 6.5rem);
         height: clamp(3.5rem, 12vw, 6.5rem);
         pointer-events: none;
-        border-color: rgb(59 130 246 / 0.22);
+        border-color: rgb(255 255 255 / 0.35);
     }
 
     .hero-signature::before {
@@ -111,6 +112,10 @@
 
     .nav-pill:hover::after {
         @apply w-full;
+    }
+
+    .nav-pill--on-dark::after {
+        @apply bg-gradient-to-r from-white to-sky-100;
     }
 
     .terminal-card {
@@ -210,7 +215,7 @@
     }
 
     .btn-ghost {
-        @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/90 px-5 py-2 text-xs font-medium text-slate-800 transition hover:border-blue-400 hover:bg-blue-50/90;
+        @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 py-2 text-xs font-medium text-slate-100 transition hover:border-sky-400/55 hover:bg-white/10;
     }
 
     .s-header {
@@ -218,15 +223,15 @@
     }
 
     .s-tag {
-        @apply inline-flex h-7 w-7 items-center justify-center rounded-full border border-blue-200 bg-white text-[0.65rem] font-medium text-slate-800;
+        @apply inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/20 bg-white/5 text-[0.65rem] font-medium text-sky-200;
     }
 
     .s-title {
-        @apply text-sm font-semibold tracking-[0.25em] text-blue-950/75;
+        @apply text-sm font-semibold tracking-[0.25em] text-white/75;
     }
 
     .s-line {
-        @apply h-px flex-1 bg-gradient-to-r from-slate-300/80 via-blue-300/50 to-transparent;
+        @apply h-px flex-1 bg-gradient-to-r from-white/25 via-sky-500/25 to-transparent;
     }
 
     .proj-header-row {

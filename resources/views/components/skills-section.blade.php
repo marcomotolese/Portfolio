@@ -24,7 +24,7 @@
 @endphp
 
 {{-- Sezione competenze --}}
-<section id="skills" class="js-section mx-auto max-w-6xl space-y-8 border-t border-blue-200/80 py-16">
+<section id="skills" class="js-section mx-auto max-w-6xl space-y-8 border-t border-white/10 py-16">
     <div class="s-header">
         <span class="s-tag">03</span>
         <h2 class="s-title">COMPETENZE</h2>

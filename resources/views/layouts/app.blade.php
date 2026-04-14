@@ -12,7 +12,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body
-        class="min-h-screen bg-[#f0f4fc] text-slate-900 antialiased selection:bg-blue-200/40 selection:text-slate-950"
+        class="min-h-screen bg-zinc-950 text-slate-200 antialiased selection:bg-sky-500/35 selection:text-white"
     >
         <div
             class="page-atmosphere pointer-events-none fixed inset-0 z-0 overflow-hidden"
@@ -27,13 +27,13 @@
         <div class="relative z-10 isolate min-h-screen">
             <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl">
                 <div
-                    class="relative left-1/2 aspect-[1155/678] w-[46rem] -translate-x-1/2 bg-gradient-to-tr from-slate-950/35 via-blue-700/30 to-sky-400/35 opacity-90"
+                    class="relative left-1/2 aspect-[1155/678] w-[46rem] -translate-x-1/2 bg-gradient-to-tr from-sky-500/25 via-blue-700/20 to-transparent opacity-90"
                 ></div>
             </div>
 
             <header class="mx-auto flex max-w-6xl items-center justify-center px-6 py-5 md:justify-between lg:px-8">
                 <a href="{{ url('/') }}" class="flex items-center gap-3">
-                    <span class="inline-flex h-9 w-9 overflow-hidden rounded-full shadow-md ring-2 ring-blue-700/35 ring-offset-2 ring-offset-[#f0f4fc]">
+                    <span class="inline-flex h-9 w-9 overflow-hidden rounded-full shadow-md ring-2 ring-white/35 ring-offset-2 ring-offset-zinc-950">
                         <img
                             src="{{ asset('images/logo.jpg') }}"
                             alt="Logo Marco Motolese"
@@ -42,10 +42,10 @@
                     </span>
                 </a>
 
-                <nav class="hidden items-center gap-6 text-sm text-slate-600 md:flex">
-                    <a href="#about" class="nav-pill transition hover:text-blue-900">About</a>
-                    <a href="#projects" class="nav-pill transition hover:text-blue-900">Projects</a>
-                    <a href="#contact" class="nav-pill transition hover:text-blue-900">Contact</a>
+                <nav class="hidden items-center gap-6 text-sm text-white/90 md:flex">
+                    <a href="#about" class="nav-pill nav-pill--on-dark transition hover:text-white">About</a>
+                    <a href="#projects" class="nav-pill nav-pill--on-dark transition hover:text-white">Projects</a>
+                    <a href="#contact" class="nav-pill nav-pill--on-dark transition hover:text-white">Contact</a>
                 </nav>
             </header>
 
@@ -53,8 +53,8 @@
                 @yield('content')
             </main>
 
-            <footer class="border-t border-blue-200/70 bg-white/75 backdrop-blur">
-                <div class="mx-auto flex max-w-6xl items-center justify-center px-6 py-5 text-xs text-slate-600 md:px-8">
+            <footer class="border-t border-white/20 bg-white/10 backdrop-blur-md">
+                <div class="mx-auto flex max-w-6xl items-center justify-center px-6 py-5 text-xs text-white/85 md:px-8">
                     <p>&copy; 2026 Marco Motolese. All rights reserved.</p>
                 </div>
             </footer>

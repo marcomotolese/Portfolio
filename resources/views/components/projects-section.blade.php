@@ -80,7 +80,7 @@
     ];
 @endphp
 
-<section id="projects" class="js-section mx-auto max-w-7xl space-y-8 border-t border-blue-200/80 py-16">
+<section id="projects" class="js-section mx-auto max-w-7xl space-y-8 border-t border-white/10 py-16">
     <div class="s-header">
         <span class="s-tag">02</span>
         <h2 class="s-title">PROGETTI SELEZIONATI</h2>

@@ -1,5 +1,5 @@
 {{-- Sezione contatti --}}
-<section id="contact" class="js-section mx-auto max-w-6xl space-y-8 border-t border-blue-200/80 pb-8 pt-16">
+<section id="contact" class="js-section mx-auto max-w-6xl space-y-8 border-t border-white/10 pb-8 pt-16">
     <div class="s-header">
         <span class="s-tag">04</span>
         <h2 class="s-title">CONTATTI</h2>
